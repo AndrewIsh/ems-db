@@ -34,8 +34,4 @@ jobs:
             - name: Run tests
             - run: npm test
 
-            - name: Publish Unit Test Results
-              uses: EnricoMi/publish-unit-test-result-action@v1
-              if: always()
-              with:
-                files: junit.xml
+
