@@ -4,7 +4,8 @@
     "description": "A database module for the Enquiry Management System",
     "main": "index.js",
     "scripts": {
-        "test": "jest --verbose"
+        "test": "jest --verbose",
+        "test:ci": "jest --silent --ci --coverage"
     },
     "jest": {
         "testEnvironment": "node",
