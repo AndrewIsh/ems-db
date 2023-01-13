@@ -8,13 +8,14 @@ on:
 
 jobs:
     build_and_test:
+        name: Build and run unit tests
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 node-version: [10.x, 12.x, 14.x, 16.x, 18.x]
         steps:
             - name: Checkout repo
-            - uses: actions/checkout@v3
+              uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
@@ -22,16 +23,12 @@ jobs:
             - name: Cache Node.js modules
               uses: actions/cache@v2
               with:
-                path: ~/.npm
-                key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                  ${{ runner.OS }}-node-
-                  ${{ runner.OS }}-
-                  
+                  path: ~/.npm
+                  key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-node-
+                      ${{ runner.OS }}-
             - name: Install dependencies
-            - run: npm ci
-            
-            - name: Run tests
-            - run: npm test
-
-
+              run: npm ci
+            - name: Run unit tests
+              run: npm run test:ci
