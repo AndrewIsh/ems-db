@@ -2,9 +2,7 @@ name: Submodule Updates
 
 on:
     push:
-        branches-ignore: [master, main]
-    pull_request:
-        branches: [master, main]
+        branches: [master]
 
 jobs:
     build:
@@ -12,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             PARENT_REPOSITORY: "AndrewIsh/ems-backend"
-            CHECKOUT_BRANCH: "master"
+            CHECKOUT_BRANCH: "master",
             PR_AGAINST_BRANCH: "master"
             OWNER: "AndrewIsh"
 
