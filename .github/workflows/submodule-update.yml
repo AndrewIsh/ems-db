@@ -1,4 +1,4 @@
-name: Submodule Updates
+name: EMS DB - Update ems-backend
 
 on:
     push:
@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             PARENT_REPOSITORY: "AndrewIsh/ems-backend"
-            CHECKOUT_BRANCH: "master",
+            CHECKOUT_BRANCH: "master"
             PR_AGAINST_BRANCH: "master"
             OWNER: "AndrewIsh"
 
